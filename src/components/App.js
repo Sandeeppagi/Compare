@@ -1,6 +1,7 @@
 import React from "react";
 // import PostList from './PostList';
 import CompareButton from "./CompareButton";
+import InputFields from "./InputFields";
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,8 @@ class App extends React.Component {
           </div>
         </div>
         <div class="ui horizontal divider"></div>
+        <div class="ui horizontal divider"></div>
+        <InputFields />
         <div class="ui horizontal divider"></div>
         <CompareButton />
         <div class="ui horizontal divider"></div>

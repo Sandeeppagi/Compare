@@ -1,20 +1,24 @@
 import React from "react";
-import { Input, Divider, Form } from "semantic-ui-react";
+import { Input, Form } from "semantic-ui-react";
 
 class InputFields extends React.Component {
   state = {
-    Office: "",
-    Country: "",
-    Currency: "",
-    Channel: "",
-    booking_type: "",
-    Package: "",
-    Saildate: ""
+    Office: "sDA",
+    Country: "ADF",
+    Currency: "SRGR",
+    Channel: "CVGB",
+    booking_type: "ETGE",
+    Package: "ETHBB",
+    Saildate: "THT"
   };
   handleInput = event => {
     console.log(event.target.name);
     console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
+  };
+  mySubmitHandler = event => {
+    event.preventDefault();
+    alert("You are submitting " + this.state.Office);
   };
   render() {
     const Channel = [
@@ -29,13 +33,13 @@ class InputFields extends React.Component {
     ];
     return (
       <div>
-        <Form>
+        <Form onSubmit={this.mySubmitHandler}>
           <Form.Group widths="equal">
-            <div class="ui grid">
-              <div class="three column row">
-                <div class="column">
+            <div className="ui grid">
+              <div className="three column row">
+                <div className="column">
                   <label name="office">Office </label>
-                  <div class="field">
+                  <div className="field">
                     <Input
                       placeholder="Office"
                       name="Office"
@@ -44,9 +48,9 @@ class InputFields extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="column">
+                <div className="column">
                   <label name="country">Country </label>
-                  <div class="field">
+                  <div className="field">
                     <Input
                       placeholder="Country"
                       name="Country"
@@ -55,9 +59,9 @@ class InputFields extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="column">
+                <div className="column">
                   <label name="package">Package </label>
-                  <div class="field">
+                  <div className="field">
                     <Input
                       placeholder="Package"
                       name="Package"
@@ -67,10 +71,10 @@ class InputFields extends React.Component {
                   </div>
                 </div>
               </div>
-              <div class="three column row">
-                <div class="column">
+              <div className="three column row">
+                <div className="column">
                   <label name="currency">Currency </label>
-                  <div class="field">
+                  <div className="field">
                     <Input
                       placeholder="Currency"
                       name="Currency"
@@ -79,9 +83,9 @@ class InputFields extends React.Component {
                     />
                   </div>
                 </div>
-                <div class="column">
+                <div className="column">
                   <label name="saildate">Saildate </label>
-                  <div class="field">
+                  <div className="field">
                     <Input
                       placeholder="Saildate"
                       name="Saildate"
@@ -91,8 +95,8 @@ class InputFields extends React.Component {
                   </div>
                 </div>
               </div>
-              <div class="three column row">
-                <div class="column">
+              <div className="three column row">
+                <div className="column">
                   <label name="channel">Channel </label>
                   <Form.Select
                     onChange={this.handleInput}
@@ -100,7 +104,7 @@ class InputFields extends React.Component {
                     placeholder="CM"
                   />
                 </div>
-                <div class="column">
+                <div className="column">
                   <label name="booking_type">Booking type </label>
                   <Form.Select
                     name="booking_type"
@@ -109,6 +113,14 @@ class InputFields extends React.Component {
                     options={booking_type}
                     placeholder="FIT"
                   />
+                </div>
+              </div>
+              <div className="three column row">
+                <div className="column">
+                  <button className="ui right labeled icon button">
+                    <i className="right arrow icon"></i>
+                    Compare
+                  </button>
                 </div>
               </div>
             </div>
